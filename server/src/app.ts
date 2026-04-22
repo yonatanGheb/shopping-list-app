@@ -1,6 +1,9 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import { itemsRouter } from "./routes/items.js";
+import { errorHandler } from "./middleware/errorHandler.js";
+import { notFoundHandler } from "./middleware/notFoundHandler.js";
 
 export function createApp() {
   const app = express();
@@ -19,6 +22,10 @@ export function createApp() {
       db: mongoose.connection.readyState === 1,
     });
   });
+
+  app.use("/items", itemsRouter);
+  app.use(notFoundHandler);
+  app.use(errorHandler);
 
   return app;
 }
