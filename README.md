@@ -1,0 +1,1 @@
+# blicksolutions-shopping-list
