@@ -1,10 +1,11 @@
 import { CheckCircle2, ClipboardList, ListTodo } from "lucide-react";
+import { AddItemForm } from "@/components/add-item-form";
 import { AppHeader } from "@/components/app-header";
 import { StatCard } from "@/components/stat-card";
 import { useShoppingList } from "@/hooks/use-shopping-list";
 
 function App() {
-  const { items } = useShoppingList();
+  const { items, loading, error, addItem } = useShoppingList();
 
   const total = items.length;
   const boughtCount = items.filter((i) => i.bought).length;
@@ -37,6 +38,24 @@ function App() {
             icon={ListTodo}
             iconClassName="text-muted-foreground"
           />
+        </div>
+
+        <div className="mt-8 flex flex-col gap-2">
+          {error ? (
+            <p className="rounded border-2 border-destructive bg-card px-3 py-2 text-sm text-destructive">
+              {error}
+            </p>
+          ) : null}
+          <AddItemForm disabled={loading} onSubmit={addItem} />
+
+          <ul>
+            {items.map((item) => (
+              <li key={item._id}>
+                {item.name}
+                {item.bought ? " ✓" : ""}
+              </li>
+            ))}
+          </ul>
         </div>
       </main>
     </>
