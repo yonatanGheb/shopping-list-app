@@ -1,14 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@import "@fontsource-variable/inter";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
   --font-head: "Archivo Black", sans-serif;
   --font-sans: "Space Grotesk", sans-serif;
-  --radius: var(--radius);
 
   --shadow-xs: 1px 1px 0 0 var(--border);
   --shadow-sm: 2px 2px 0 0 var(--border);
@@ -25,6 +22,7 @@
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-primary-hover: var(--primary-hover);
+  --color-secondary-hover: var(--secondary-hover);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-muted: var(--muted);
@@ -34,19 +32,32 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
 }
 
 :root {
+  color-scheme: light;
   --radius: 0;
   --background: #fff;
   --foreground: #000;
   --card: #fff;
   --card-foreground: #000;
+  --popover: #fff;
+  --popover-foreground: #000;
   --primary: #ffdb33;
   --primary-hover: #ffcc00;
   --primary-foreground: #000;
   --secondary: #000;
   --secondary-foreground: #fff;
+  --secondary-hover: #1a1a1a;
   --muted: #aeaeae;
   --muted-foreground: #5a5a5a;
   --accent: #fae583;
@@ -54,26 +65,35 @@
   --destructive: #e63946;
   --destructive-foreground: #fff;
   --border: #000;
+  --input: #000;
+  --ring: #000;
+  --grid-line: color-mix(in oklab, var(--foreground) 6%, transparent);
 }
 
 .dark {
-  --radius: 0;
-  --background: #1a1a1a;
+  color-scheme: dark;
+  --background: #000000;
   --foreground: #f5f5f5;
-  --card: #242424;
+  --card: #040404;
   --card-foreground: #f5f5f5;
-  --primary: #ffdb33;
-  --primary-hover: #ffcc00;
-  --primary-foreground: #000;
-  --secondary: #3a3a3a;
-  --secondary-foreground: #f5f5f5;
+  --popover: #26262a;
+  --popover-foreground: #f5f5f5;
+  --primary: #ff90e8;
+  --primary-hover: #ff79e0;
+  --primary-foreground: #000000;
+  --secondary: #c0dbfe;
+  --secondary-foreground: #000000;
+  --secondary-hover: #a8c9f0;
   --muted: #3f3f46;
   --muted-foreground: #a0a0a0;
-  --accent: #fae583;
-  --accent-foreground: #000;
+  --accent: #ff90e8;
+  --accent-foreground: #000000;
   --destructive: #e63946;
   --destructive-foreground: #fff;
   --border: #3a3a3a;
+  --input: #3a3a3a;
+  --ring: #a0a0a0;
+  --grid-line: color-mix(in oklab, var(--foreground) 5%, transparent);
 }
 
 @layer base {

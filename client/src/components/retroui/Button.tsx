@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
-import React, { ButtonHTMLAttributes } from "react";
+import { cva } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 import { Slot } from "@radix-ui/react-slot";
+import React, { type ButtonHTMLAttributes } from "react";
 
 export const buttonVariants = cva(
   "font-head transition-all rounded outline-hidden cursor-pointer duration-200 font-medium flex items-center",
