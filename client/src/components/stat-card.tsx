@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils"
 export type StatCardProps = {
   label: string
   value: number
-  footnote: string
   icon: LucideIcon
   iconClassName: string
 }
@@ -13,7 +12,6 @@ export type StatCardProps = {
 export function StatCard({
   label,
   value,
-  footnote,
   icon: Icon,
   iconClassName,
 }: StatCardProps) {
@@ -32,7 +30,6 @@ export function StatCard({
         <p className="text-3xl font-semibold tabular-nums tracking-tight text-foreground">
           {value}
         </p>
-        <p className="text-xs text-muted-foreground">{footnote}</p>
       </Card.Header>
     </Card>
   )

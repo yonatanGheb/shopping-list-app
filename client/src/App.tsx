@@ -28,25 +28,24 @@ function App() {
       <AppHeader />
 
       <main className={cn(PAGE_SHELL, "py-6")}>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <StatCard
-            label="Artikel gesamt"
-            value={total}
-            footnote="Einträge auf deiner Liste"
-            icon={ClipboardList}
-            iconClassName="text-muted-foreground"
-          />
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          <div className="col-span-2 sm:col-span-1">
+            <StatCard
+              label="Artikel gesamt"
+              value={total}
+              icon={ClipboardList}
+              iconClassName="text-muted-foreground"
+            />
+          </div>
           <StatCard
             label="Gekauft"
             value={boughtCount}
-            footnote="Artikel schon eingekauft"
             icon={CheckCircle2}
             iconClassName="text-muted-foreground"
           />
           <StatCard
             label="Noch offen"
             value={openCount}
-            footnote="Stehen noch auf der Liste"
             icon={ListTodo}
             iconClassName="text-muted-foreground"
           />

@@ -27,8 +27,9 @@ export function ShoppingListItem({
   return (
     <div
       className={cn(
-        "flex items-center gap-3 rounded border-2 border-border bg-card px-3 py-2 shadow-sm",
-        item.bought && "opacity-80",
+        "flex items-center gap-3 rounded border-2 border-border bg-card px-3 py-2 shadow-sm transition-colors",
+        item.bought &&
+        "bg-secondary/10 dark:border-muted-foreground/35 dark:bg-muted/35",
       )}
     >
       <Checkbox

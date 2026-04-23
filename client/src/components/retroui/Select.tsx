@@ -77,7 +77,7 @@ const SelectItem = ({
 }: SelectPrimitive.SelectItemProps) => (
   <SelectPrimitive.Item
     className={cn(
-      "relative flex w-full cursor-default select-none items-center py-1.5 px-2 outline-none data-[highlighted]:bg-primary data-[highlighted]:text-primary-foreground focus:bg-primary focus:text-primary-foreground data-disabled:pointer-events-none data-disabled:opacity-50",
+      "relative flex w-full cursor-default select-none items-center py-1.5 px-2 outline-none data-[state=checked]:bg-secondary data-[state=checked]:text-secondary-foreground data-[highlighted]:bg-secondary data-[highlighted]:text-secondary-foreground focus:bg-secondary focus:text-secondary-foreground data-disabled:pointer-events-none data-disabled:opacity-50",
       className,
     )}
     {...props}
@@ -86,7 +86,7 @@ const SelectItem = ({
 
     <span className="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
       <SelectPrimitive.ItemIndicator>
-        <Check className="h-4 w-4 text-foreground" />
+        <Check className="h-4 w-4 shrink-0 text-secondary-foreground" />
       </SelectPrimitive.ItemIndicator>
     </span>
   </SelectPrimitive.Item>

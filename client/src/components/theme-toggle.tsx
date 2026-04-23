@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
-import { Button } from "@/components/retroui/Button";
 import { cn } from "@/lib/utils";
+
+const themeToggleButtonClass =
+  "inline-flex size-10 shrink-0 items-center justify-center rounded border-2 border-border bg-transparent shadow-none outline-none transition-colors hover:bg-muted/25 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-40";
 
 type ThemeToggleProps = {
   className?: string;
@@ -24,35 +26,31 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 
   if (!mounted) {
     return (
-      <Button
+      <button
         type="button"
-        variant="default"
-        size="icon"
-        className={cn("size-10 min-h-10 min-w-10 shrink-0", className)}
+        className={cn(themeToggleButtonClass, className)}
         disabled
         aria-label="Toggle theme"
       >
-        <Moon className="size-[1.05rem]" aria-hidden />
-      </Button>
+        <Moon className="size-[1.05rem] text-foreground" aria-hidden />
+      </button>
     );
   }
 
   return (
-    <Button
+    <button
       type="button"
-      variant="default"
-      size="icon"
-      className={cn("size-10 min-h-10 min-w-10 shrink-0", className)}
+      className={cn(themeToggleButtonClass, className)}
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       aria-pressed={isDark}
-      title={isDark ? "Light mode" : "Dark mode"}
+      title={isDark ? "Heller Modus" : "Dunkler Modus"}
     >
       {isDark ? (
-        <Sun className="size-[1.05rem]" aria-hidden />
+        <Sun className="size-[1.05rem] text-foreground" aria-hidden />
       ) : (
-        <Moon className="size-[1.05rem]" aria-hidden />
+        <Moon className="size-[1.05rem] text-foreground" aria-hidden />
       )}
-    </Button>
+    </button>
   );
 }
